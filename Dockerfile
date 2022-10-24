@@ -30,13 +30,13 @@ RUN touch /etc/supervisor/conf.d/supervisord.conf
 RUN echo "[supervisord]" > /etc/supervisor/conf.d/supervisord.conf
 RUN echo "nodaemon=true" >> /etc/supervisor/conf.d/supervisord.conf
 
-#Configuració del SSH amb supervisord
-RUN echo "[program:ssh]" >> /etc/supervisor/conf.d/supervisord.conf
-RUN echo "command= /usr/sbin/sshd -D" >> /etc/supervisor/conf.d/supervisord.conf
-
 #Configuració del Apache2 amb supervisord
 RUN echo "[program:apache2]" >> /etc/supervisor/conf.d/supervisord.conf
 RUN echo "command= /usr/sbin/apache2ctl -DFOREGROUND" >> /etc/supervisor/conf.d/supervisord.conf
+
+#Configuració del SSH amb supervisord
+RUN echo "[program:ssh]" >> /etc/supervisor/conf.d/supervisord.conf
+RUN echo "command= /usr/sbin/sshd -D" >> /etc/supervisor/conf.d/supervisord.conf
 
 #Configuració del MySQL
 RUN echo "[program:mysql]" >> /etc/supervisor/conf.d/supervisord.conf
